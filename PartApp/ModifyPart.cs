@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PartApp
@@ -20,7 +19,6 @@ namespace PartApp
             }
             LoadPartDetails();
             SetupRadioButtons();
-            ToggleCompanyNameMachineIDFields();
         }
 
         private void LoadPartDetails()
@@ -28,7 +26,7 @@ namespace PartApp
             txtPartId.Text = _currentPart.PartId.ToString();
             txtName.Text = _currentPart.Name;
             txtInventory.Text = _currentPart.InStock.ToString();
-            txtPrice.Text = _currentPart.Price.ToString("C2");
+            txtPrice.Text = _currentPart.Price.ToString("C");
             txtMin.Text = _currentPart.Min.ToString();
             txtMax.Text = _currentPart.Max.ToString();
             if (_currentPart is Inhouse inhousePart)
@@ -41,6 +39,7 @@ namespace PartApp
                 radioOutsourced.Checked = true;
                 txtCompanyName.Text = outsourcedPart.CompanyName;
             }
+            ToggleCompanyNameMachineIDFields();
         }
 
         private void SetupRadioButtons()
@@ -60,34 +59,47 @@ namespace PartApp
         {
             if (!TryParseFormFields(out int inventory, out decimal price, out int min, out int max))
             {
-                MessageBox.Show("Please enter valid numeric values for Inventory, Price, Min, and Max.");
                 return;
             }
+
             if (min > max)
             {
-                MessageBox.Show("Min should be less than Max.");
+                MessageBox.Show("Min should be less than Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             if (inventory < min || inventory > max)
             {
-                MessageBox.Show("Inventory must be between Min and Max.");
+                MessageBox.Show("Inventory must be between Min and Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            UpdatePart(inventory, price, min, max);
-            Close();
+
+            try
+            {
+                UpdatePart(inventory, price, min, max);
+                this.DialogResult = DialogResult.OK; 
+                Close(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error updating part: {ex.Message}", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool TryParseFormFields(out int inventory, out decimal price, out int min, out int max)
         {
-            inventory = 0;
-            price = 0m;
-            min = 0;
-            max = 0;
             bool inventoryValid = int.TryParse(txtInventory.Text, out inventory);
             bool priceValid = decimal.TryParse(txtPrice.Text, System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out price);
             bool minValid = int.TryParse(txtMin.Text, out min);
             bool maxValid = int.TryParse(txtMax.Text, out max);
-            return inventoryValid && priceValid && minValid && maxValid;
+
+            if (!inventoryValid || !priceValid || !minValid || !maxValid)
+            {
+                MessageBox.Show("Please enter valid numeric values for Inventory, Price, Min, and Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
 
         private void UpdatePart(int inventory, decimal price, int min, int max)
@@ -97,35 +109,24 @@ namespace PartApp
             _currentPart.Price = price;
             _currentPart.Min = min;
             _currentPart.Max = max;
-            if (radioInHouse.Checked)
+
+            if (radioInHouse.Checked && _currentPart is Inhouse inhousePart)
             {
-                if (_currentPart is Inhouse inhousePart)
+                if (int.TryParse(txtMachineID.Text, out int machineId))
                 {
-                    if (int.TryParse(txtMachineID.Text, out int machineId))
-                    {
-                        inhousePart.MachineId = machineId;
-                    }
-                    else
-                    {
-                        throw new ApplicationException("Invalid Machine ID.");
-                    }
+                    inhousePart.MachineId = machineId;
                 }
                 else
                 {
-                    throw new ApplicationException("Part is not of type Inhouse.");
+                    MessageBox.Show("Invalid Machine ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
-            else if (radioOutsourced.Checked)
+            else if (radioOutsourced.Checked && _currentPart is Outsourced outsourcedPart)
             {
-                if (_currentPart is Outsourced outsourcedPart)
-                {
-                    outsourcedPart.CompanyName = txtCompanyName.Text;
-                }
-                else
-                {
-                    throw new ApplicationException("Part is not of type Outsourced.");
-                }
+                outsourcedPart.CompanyName = txtCompanyName.Text;
             }
+
             ProductDataStore.UpdatePart(_currentPart);
         }
 

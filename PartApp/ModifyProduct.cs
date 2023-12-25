@@ -20,8 +20,6 @@ namespace PartApp
                 Close();
                 return;
             }
-            SetupDataGridViewColumns(dgvAllParts);
-            SetupDataGridViewColumns(dgvAssociatedParts);
             LoadProductData();
         }
 
@@ -42,67 +40,62 @@ namespace PartApp
             dgvAssociatedParts.DataSource = _currentProduct.AssociatedParts;
         }
 
-        private void SetupDataGridViewColumns(DataGridView dgv)
-        {
-            dgv.ReadOnly = true;
-            dgv.RowHeadersVisible = false;
-            dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv.AutoGenerateColumns = false;
-
-            dgv.Columns.Clear();
-
-            dgv.Columns.Add(CreateTextBoxColumn("PartId", "Part ID"));
-            dgv.Columns.Add(CreateTextBoxColumn("Name", "Name"));
-            dgv.Columns.Add(CreateTextBoxColumn("InStock", "Inventory"));
-            dgv.Columns.Add(CreateTextBoxColumn("Price", "Price"));
-            dgv.Columns.Add(CreateTextBoxColumn("Min", "Min"));
-            dgv.Columns.Add(CreateTextBoxColumn("Max", "Max"));
-
-            foreach (DataGridViewColumn column in dgv.Columns)
-            {
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
-
-            dgv.Refresh();
-        }
-
-        private DataGridViewTextBoxColumn CreateTextBoxColumn(string dataPropertyName, string headerText)
-        {
-            return new DataGridViewTextBoxColumn
-            {
-                DataPropertyName = dataPropertyName,
-                HeaderText = headerText,
-                Name = $"column{dataPropertyName}"
-            };
-        }
-
         private void ModifyProductSaveBT_Click(object sender, EventArgs e)
         {
-            if (!int.TryParse(txtInventory.Text, out int inventory) ||
-                !decimal.TryParse(txtPrice.Text.Substring(1), out decimal price) || 
-                !int.TryParse(txtMin.Text, out int min) ||
-                !int.TryParse(txtMax.Text, out int max))
+            if (!TryParseFormFields(out int inventory, out decimal price, out int min, out int max))
             {
-                MessageBox.Show("Please enter valid numeric values for Inventory, Price, Min, and Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (min > max)
+            {
+                MessageBox.Show("Min should be less than Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show("Inventory must be between Min and Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                // Update the product in the global store
-                _currentProduct.Name = txtName.Text;
-                _currentProduct.Price = price;
-                _currentProduct.Max = max; 
-                _currentProduct.Min = min;
-                _currentProduct.InStock = inventory; 
-                ProductDataStore.UpdateProduct(_currentProduct);
-
-                Close();
+                UpdateProduct(inventory, price, min, max);
+                this.DialogResult = DialogResult.OK; // Indicate success
+                Close(); // Close the form
             }
             catch (InvalidOperationException ex)
             {
                 MessageBox.Show(ex.Message, "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private bool TryParseFormFields(out int inventory, out decimal price, out int min, out int max)
+        {
+            bool inventoryValid = int.TryParse(txtInventory.Text, out inventory);
+            bool priceValid = decimal.TryParse(txtPrice.Text, System.Globalization.NumberStyles.Currency, System.Globalization.CultureInfo.CurrentCulture, out price);
+            bool minValid = int.TryParse(txtMin.Text, out min);
+            bool maxValid = int.TryParse(txtMax.Text, out max);
+
+            if (!inventoryValid || !priceValid || !minValid || !maxValid)
+            {
+                MessageBox.Show("Please enter valid numeric values for Inventory, Price, Min, and Max.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
+        }
+
+        private void UpdateProduct(int inventory, decimal price, int min, int max)
+        {
+            _currentProduct.Name = txtName.Text;
+            _currentProduct.InStock = inventory;
+            _currentProduct.Price = price;
+            _currentProduct.Min = min;
+            _currentProduct.Max = max;
+
+            ProductDataStore.UpdateProduct(_currentProduct);
         }
 
         private void ModifyProductCancelBT_Click(object sender, EventArgs e)
