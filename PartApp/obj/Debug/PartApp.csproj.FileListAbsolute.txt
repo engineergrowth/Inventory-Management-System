@@ -1,0 +1,13 @@
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.csproj.AssemblyReference.cache
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.MainForm.resources
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.csproj.GenerateResource.cache
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.csproj.CoreCompileInputs.cache
+C:\Users\home\source\repos\PartApp\PartApp\bin\Debug\PartApp.exe.config
+C:\Users\home\source\repos\PartApp\PartApp\bin\Debug\PartApp.exe
+C:\Users\home\source\repos\PartApp\PartApp\bin\Debug\PartApp.pdb
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.AddPart.resources
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.exe
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.pdb
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.ModifyProduct.resources
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.ModifyPart.resources
+C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.AddProduct.resources
