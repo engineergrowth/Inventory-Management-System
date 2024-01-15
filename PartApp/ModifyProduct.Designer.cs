@@ -47,6 +47,10 @@
             this.btnAddPart = new System.Windows.Forms.Button();
             this.dgvAssociatedParts = new System.Windows.Forms.DataGridView();
             this.btnDeletePart = new System.Windows.Forms.Button();
+            this.PartsAssociatedLB = new System.Windows.Forms.Label();
+            this.AllCandidatePartsLB = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssociatedParts)).BeginInit();
             this.SuspendLayout();
@@ -196,7 +200,7 @@
             // dgvAllParts
             // 
             this.dgvAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllParts.Location = new System.Drawing.Point(523, 24);
+            this.dgvAllParts.Location = new System.Drawing.Point(523, 69);
             this.dgvAllParts.Name = "dgvAllParts";
             this.dgvAllParts.RowHeadersWidth = 62;
             this.dgvAllParts.RowTemplate.Height = 28;
@@ -206,7 +210,7 @@
             // btnAddPart
             // 
             this.btnAddPart.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPart.Location = new System.Drawing.Point(756, 294);
+            this.btnAddPart.Location = new System.Drawing.Point(753, 324);
             this.btnAddPart.Name = "btnAddPart";
             this.btnAddPart.Size = new System.Drawing.Size(108, 42);
             this.btnAddPart.TabIndex = 46;
@@ -217,7 +221,7 @@
             // dgvAssociatedParts
             // 
             this.dgvAssociatedParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssociatedParts.Location = new System.Drawing.Point(523, 356);
+            this.dgvAssociatedParts.Location = new System.Drawing.Point(523, 390);
             this.dgvAssociatedParts.Name = "dgvAssociatedParts";
             this.dgvAssociatedParts.RowHeadersWidth = 62;
             this.dgvAssociatedParts.RowTemplate.Height = 28;
@@ -227,7 +231,7 @@
             // btnDeletePart
             // 
             this.btnDeletePart.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeletePart.Location = new System.Drawing.Point(756, 629);
+            this.btnDeletePart.Location = new System.Drawing.Point(756, 652);
             this.btnDeletePart.Name = "btnDeletePart";
             this.btnDeletePart.Size = new System.Drawing.Size(108, 42);
             this.btnDeletePart.TabIndex = 48;
@@ -235,12 +239,55 @@
             this.btnDeletePart.UseVisualStyleBackColor = true;
             this.btnDeletePart.Click += new System.EventHandler(this.btnDeletePart_Click);
             // 
+            // PartsAssociatedLB
+            // 
+            this.PartsAssociatedLB.AutoSize = true;
+            this.PartsAssociatedLB.Font = new System.Drawing.Font("Gadugi", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PartsAssociatedLB.Location = new System.Drawing.Point(530, 356);
+            this.PartsAssociatedLB.Name = "PartsAssociatedLB";
+            this.PartsAssociatedLB.Size = new System.Drawing.Size(184, 26);
+            this.PartsAssociatedLB.TabIndex = 49;
+            this.PartsAssociatedLB.Text = "Associated Parts";
+            // 
+            // AllCandidatePartsLB
+            // 
+            this.AllCandidatePartsLB.AutoSize = true;
+            this.AllCandidatePartsLB.Font = new System.Drawing.Font("Gadugi", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllCandidatePartsLB.Location = new System.Drawing.Point(518, 28);
+            this.AllCandidatePartsLB.Name = "AllCandidatePartsLB";
+            this.AllCandidatePartsLB.Size = new System.Drawing.Size(211, 26);
+            this.AllCandidatePartsLB.TabIndex = 50;
+            this.AllCandidatePartsLB.Text = "All Candidate Parts";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(753, 15);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(333, 39);
+            this.txtSearch.TabIndex = 51;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(1111, 12);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(108, 42);
+            this.btnSearch.TabIndex = 52;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
             // ModifyProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1116, 696);
+            this.ClientSize = new System.Drawing.Size(1228, 703);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.AllCandidatePartsLB);
+            this.Controls.Add(this.PartsAssociatedLB);
             this.Controls.Add(this.btnDeletePart);
             this.Controls.Add(this.dgvAssociatedParts);
             this.Controls.Add(this.btnAddPart);
@@ -290,5 +337,9 @@
         private System.Windows.Forms.Button btnAddPart;
         private System.Windows.Forms.DataGridView dgvAssociatedParts;
         private System.Windows.Forms.Button btnDeletePart;
+        private System.Windows.Forms.Label PartsAssociatedLB;
+        private System.Windows.Forms.Label AllCandidatePartsLB;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

@@ -1,16 +1,27 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace PartApp
 {
     public partial class ModifyPart : Form
     {
         private Part _currentPart;
+        private Inventory _inventory;
+        private List<Part> _initialParts; 
 
-        public ModifyPart(int partId)
+      
+        public List<Part> InitialParts
+        {
+            get { return _initialParts; }
+            set { _initialParts = value; }
+        }
+
+        public ModifyPart(int partId, Inventory inventory)
         {
             InitializeComponent();
-            _currentPart = ProductDataStore.GetPartById(partId);
+            _inventory = inventory;
+            _currentPart = _inventory.LookupPart(partId);
             if (_currentPart == null)
             {
                 MessageBox.Show("Part not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -76,9 +87,41 @@ namespace PartApp
 
             try
             {
-                UpdatePart(inventory, price, min, max);
-                this.DialogResult = DialogResult.OK; 
-                Close(); 
+                Part updatedPart;
+                if (radioInHouse.Checked)
+                {
+                    if (int.TryParse(txtMachineID.Text, out int machineId))
+                    {
+                        updatedPart = new Inhouse(
+                            _currentPart.PartId,
+                            txtName.Text,
+                            price,
+                            inventory,
+                            min,
+                            max,
+                            machineId);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Invalid Machine ID.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    updatedPart = new Outsourced(
+                        _currentPart.PartId,
+                        txtName.Text,
+                        price,
+                        inventory,
+                        min,
+                        max,
+                        txtCompanyName.Text);
+                }
+
+                _inventory.UpdatePart(_currentPart.PartId, updatedPart);
+                this.DialogResult = DialogResult.OK;
+                Close();
             }
             catch (Exception ex)
             {
@@ -127,7 +170,7 @@ namespace PartApp
                 outsourcedPart.CompanyName = txtCompanyName.Text;
             }
 
-            ProductDataStore.UpdatePart(_currentPart);
+            _inventory.UpdatePart(_currentPart.PartId, _currentPart); // Use the instance to call the UpdatePart method
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -47,6 +47,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvAllParts = new System.Windows.Forms.DataGridView();
             this.dgvAssociatedParts = new System.Windows.Forms.DataGridView();
+            this.AllCandidatePartsLB = new System.Windows.Forms.Label();
+            this.PartsAssociatedLB = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAssociatedParts)).BeginInit();
             this.SuspendLayout();
@@ -196,7 +200,7 @@
             // BtnDelete
             // 
             this.BtnDelete.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDelete.Location = new System.Drawing.Point(744, 627);
+            this.BtnDelete.Location = new System.Drawing.Point(764, 650);
             this.BtnDelete.Name = "BtnDelete";
             this.BtnDelete.Size = new System.Drawing.Size(108, 42);
             this.BtnDelete.TabIndex = 38;
@@ -207,7 +211,7 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(744, 290);
+            this.btnAdd.Location = new System.Drawing.Point(764, 334);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(108, 42);
             this.btnAdd.TabIndex = 39;
@@ -218,7 +222,7 @@
             // dgvAllParts
             // 
             this.dgvAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAllParts.Location = new System.Drawing.Point(502, 23);
+            this.dgvAllParts.Location = new System.Drawing.Point(502, 79);
             this.dgvAllParts.Name = "dgvAllParts";
             this.dgvAllParts.RowHeadersWidth = 62;
             this.dgvAllParts.RowTemplate.Height = 28;
@@ -228,19 +232,62 @@
             // dgvAssociatedParts
             // 
             this.dgvAssociatedParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAssociatedParts.Location = new System.Drawing.Point(502, 354);
+            this.dgvAssociatedParts.Location = new System.Drawing.Point(502, 388);
             this.dgvAssociatedParts.Name = "dgvAssociatedParts";
             this.dgvAssociatedParts.RowHeadersWidth = 62;
             this.dgvAssociatedParts.RowTemplate.Height = 28;
             this.dgvAssociatedParts.Size = new System.Drawing.Size(563, 256);
             this.dgvAssociatedParts.TabIndex = 41;
             // 
+            // AllCandidatePartsLB
+            // 
+            this.AllCandidatePartsLB.AutoSize = true;
+            this.AllCandidatePartsLB.Font = new System.Drawing.Font("Gadugi", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllCandidatePartsLB.Location = new System.Drawing.Point(497, 31);
+            this.AllCandidatePartsLB.Name = "AllCandidatePartsLB";
+            this.AllCandidatePartsLB.Size = new System.Drawing.Size(211, 26);
+            this.AllCandidatePartsLB.TabIndex = 42;
+            this.AllCandidatePartsLB.Text = "All Candidate Parts";
+            // 
+            // PartsAssociatedLB
+            // 
+            this.PartsAssociatedLB.AutoSize = true;
+            this.PartsAssociatedLB.Font = new System.Drawing.Font("Gadugi", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PartsAssociatedLB.Location = new System.Drawing.Point(497, 350);
+            this.PartsAssociatedLB.Name = "PartsAssociatedLB";
+            this.PartsAssociatedLB.Size = new System.Drawing.Size(184, 26);
+            this.PartsAssociatedLB.TabIndex = 43;
+            this.PartsAssociatedLB.Text = "Associated Parts";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(1084, 15);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(108, 42);
+            this.btnSearch.TabIndex = 44;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(732, 18);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(333, 39);
+            this.txtSearch.TabIndex = 50;
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1119, 698);
+            this.ClientSize = new System.Drawing.Size(1214, 714);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.PartsAssociatedLB);
+            this.Controls.Add(this.AllCandidatePartsLB);
             this.Controls.Add(this.dgvAssociatedParts);
             this.Controls.Add(this.dgvAllParts);
             this.Controls.Add(this.btnAdd);
@@ -290,5 +337,9 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvAllParts;
         private System.Windows.Forms.DataGridView dgvAssociatedParts;
+        private System.Windows.Forms.Label AllCandidatePartsLB;
+        private System.Windows.Forms.Label PartsAssociatedLB;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }

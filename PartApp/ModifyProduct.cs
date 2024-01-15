@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,11 +10,13 @@ namespace PartApp
     {
         private Product _currentProduct;
         private BindingList<Part> _availableParts;
+        private Inventory _inventory;
 
-        public ModifyProduct(int productId)
+        public ModifyProduct(int productId, IEnumerable<Product> initialProducts, IEnumerable<Part> initialParts)
         {
             InitializeComponent();
-            _currentProduct = ProductDataStore.GetProductById(productId);
+            _inventory = new Inventory(initialProducts, initialParts);
+            _currentProduct = _inventory.LookupProduct(productId);
             if (_currentProduct == null)
             {
                 MessageBox.Show("Product not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -33,7 +36,7 @@ namespace PartApp
             txtMax.Text = _currentProduct.Max.ToString();
 
             _availableParts = new BindingList<Part>(
-                ProductDataStore.AllParts.Except(_currentProduct.AssociatedParts).ToList()
+                _inventory.AllParts.Except(_currentProduct.AssociatedParts).ToList()
             );
 
             dgvAllParts.DataSource = _availableParts;
@@ -62,8 +65,8 @@ namespace PartApp
             try
             {
                 UpdateProduct(inventory, price, min, max);
-                this.DialogResult = DialogResult.OK; // Indicate success
-                Close(); // Close the form
+                this.DialogResult = DialogResult.OK;
+                Close();
             }
             catch (InvalidOperationException ex)
             {
@@ -95,7 +98,7 @@ namespace PartApp
             _currentProduct.Min = min;
             _currentProduct.Max = max;
 
-            ProductDataStore.UpdateProduct(_currentProduct);
+            _inventory.UpdateProduct(_currentProduct);
         }
 
         private void ModifyProductCancelBT_Click(object sender, EventArgs e)
@@ -131,6 +134,12 @@ namespace PartApp
                 dgvAllParts.Refresh();
                 dgvAssociatedParts.Refresh();
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.ToLower();
+            dgvAllParts.DataSource = _availableParts.Where(part => part.Name.ToLower().Contains(searchText)).ToList();
         }
     }
 }

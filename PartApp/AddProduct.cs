@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace PartApp
 {
@@ -10,13 +9,17 @@ namespace PartApp
     {
         private BindingList<Part> _availableParts;
         private BindingList<Part> _associatedParts;
+        private Inventory _inventory;
 
-        public AddProduct()
+        public AddProduct(Inventory inventory)
         {
             InitializeComponent();
             SetupDataGridViewColumns(dgvAllParts);
             SetupDataGridViewColumns(dgvAssociatedParts);
-            _availableParts = new BindingList<Part>(ProductDataStore.AllParts);
+
+            _inventory = inventory;
+
+            _availableParts = new BindingList<Part>(_inventory.AllParts);
             _associatedParts = new BindingList<Part>();
 
             dgvAllParts.DataSource = _availableParts;
@@ -75,7 +78,7 @@ namespace PartApp
             }
 
             var newProduct = new Product(
-                ProductDataStore.GenerateProductId(),
+                _inventory.GenerateProductId(),
                 txtName.Text,
                 price,
                 inventory,
@@ -88,7 +91,8 @@ namespace PartApp
                 newProduct.AddAssociatedPart(part);
             }
 
-            ProductDataStore.AddProduct(newProduct);
+            _inventory.AddProduct(newProduct);
+
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -114,9 +118,22 @@ namespace PartApp
             if (dgvAssociatedParts.CurrentRow == null) return;
 
             var partToRemove = (Part)dgvAssociatedParts.CurrentRow.DataBoundItem;
-            _associatedParts.Remove(partToRemove);
 
-            dgvAssociatedParts.Refresh();
+    
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this part from the product?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+              
+                _associatedParts.Remove(partToRemove);
+                dgvAssociatedParts.Refresh();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchText = txtSearch.Text.ToLower();
+            dgvAllParts.DataSource = _availableParts.Where(part => part.Name.ToLower().Contains(searchText)).ToList();
         }
     }
 }

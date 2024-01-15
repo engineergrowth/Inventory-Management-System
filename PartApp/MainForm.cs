@@ -7,9 +7,12 @@ namespace PartApp
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private Inventory _inventory;
+
+        public MainForm(Inventory inventory)
         {
             InitializeComponent();
+            _inventory = inventory;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -34,7 +37,7 @@ namespace PartApp
 
         private void AddPartBT_Click(object sender, EventArgs e)
         {
-            AddPart addPartForm = new AddPart();
+            AddPart addPartForm = new AddPart(_inventory); // Pass the Inventory object
             if (addPartForm.ShowDialog() == DialogResult.OK)
             {
                 RefreshPartsGrid();
@@ -46,10 +49,16 @@ namespace PartApp
             if (MainPartDGV.CurrentRow != null)
             {
                 int partId = Convert.ToInt32(MainPartDGV.CurrentRow.Cells["PartId"].Value);
-                ModifyPart modifyPartForm = new ModifyPart(partId);
-                if (modifyPartForm.ShowDialog() == DialogResult.OK)
+                Part partToModify = GetPartById(partId);
+                if (partToModify != null)
                 {
-                    RefreshPartsGrid();
+                    ModifyPart modifyPartForm = new ModifyPart(partId, _inventory); // Pass partId and _inventory
+                    modifyPartForm.InitialParts = _inventory.AllParts.ToList(); // Set the InitialParts property
+                    // No need to call the PartToModify method, as it's not a method in ModifyPart class
+                    if (modifyPartForm.ShowDialog() == DialogResult.OK)
+                    {
+                        RefreshPartsGrid();
+                    }
                 }
             }
             else
@@ -57,6 +66,11 @@ namespace PartApp
                 MessageBox.Show("Please select a part to modify.", "No Part Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+
+
+
+
 
         private void DeletePartBT_Click(object sender, EventArgs e)
         {
@@ -66,7 +80,7 @@ namespace PartApp
                 var confirmResult = MessageBox.Show("Are you sure to delete this part?", "Confirm Delete", MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    ProductDataStore.DeletePart(partId);
+                    DeletePart(partId);
                     RefreshPartsGrid();
                 }
             }
@@ -78,7 +92,7 @@ namespace PartApp
 
         private void AddProductBT_Click(object sender, EventArgs e)
         {
-            AddProduct addProductForm = new AddProduct();
+            AddProduct addProductForm = new AddProduct(_inventory); // Pass the Inventory object
             if (addProductForm.ShowDialog() == DialogResult.OK)
             {
                 RefreshProductsGrid();
@@ -90,7 +104,7 @@ namespace PartApp
             if (MainProductDGV.CurrentRow != null)
             {
                 int productId = Convert.ToInt32(MainProductDGV.CurrentRow.Cells["ProductId"].Value);
-                ModifyProduct modifyProductForm = new ModifyProduct(productId);
+                ModifyProduct modifyProductForm = new ModifyProduct(productId, _inventory.Products, _inventory.AllParts); // Pass the Inventory object, initialProducts, and initialParts
                 if (modifyProductForm.ShowDialog() == DialogResult.OK)
                 {
                     RefreshProductsGrid();
@@ -107,7 +121,7 @@ namespace PartApp
             if (MainProductDGV.CurrentRow != null)
             {
                 int productId = Convert.ToInt32(MainProductDGV.CurrentRow.Cells["ProductId"].Value);
-                Product productToDelete = ProductDataStore.GetProductById(productId);
+                Product productToDelete = GetProductById(productId);
 
                 if (productToDelete != null && productToDelete.AssociatedParts.Count > 0)
                 {
@@ -118,7 +132,7 @@ namespace PartApp
                 var confirmResult = MessageBox.Show("Are you sure to delete this product?", "Confirm Delete", MessageBoxButtons.YesNo);
                 if (confirmResult == DialogResult.Yes)
                 {
-                    ProductDataStore.DeleteProduct(productId);
+                    DeleteProduct(productId);
                     RefreshProductsGrid();
                 }
             }
@@ -137,29 +151,56 @@ namespace PartApp
         {
             var searchText = PartSearchBox.Text.ToLower();
             MainPartDGV.DataSource = string.IsNullOrWhiteSpace(searchText)
-                ? ProductDataStore.AllParts
-                : new BindingList<Part>(ProductDataStore.AllParts.Where(part => part.Name.ToLower().Contains(searchText)).ToList());
+                ? _inventory.AllParts
+                : new BindingList<Part>(_inventory.AllParts.Where(part => part.Name.ToLower().Contains(searchText)).ToList());
         }
 
         private void SearchProducts()
         {
             var searchText = ProductSearchBox.Text.ToLower();
             MainProductDGV.DataSource = string.IsNullOrWhiteSpace(searchText)
-                ? ProductDataStore.Products
-                : new BindingList<Product>(ProductDataStore.Products.Where(product => product.Name.ToLower().Contains(searchText)).ToList());
+                ? _inventory.Products
+                : new BindingList<Product>(_inventory.Products.Where(product => product.Name.ToLower().Contains(searchText)).ToList());
         }
 
         private void RefreshPartsGrid()
         {
             MainPartDGV.DataSource = null;
-            MainPartDGV.DataSource = ProductDataStore.AllParts;
+            MainPartDGV.DataSource = _inventory.AllParts;
         }
 
         private void RefreshProductsGrid()
         {
             MainProductDGV.DataSource = null;
-            MainProductDGV.DataSource = ProductDataStore.Products;
+            MainProductDGV.DataSource = _inventory.Products;
+        }
+
+        private void DeletePart(int partId)
+        {
+            Part partToDelete = GetPartById(partId);
+            if (partToDelete != null)
+            {
+                _inventory.DeletePart(partToDelete);
+            }
+        }
+
+        private void DeleteProduct(int productId)
+        {
+            Product productToDelete = GetProductById(productId);
+            if (productToDelete != null)
+            {
+                _inventory.Products.Remove(productToDelete);
+            }
+        }
+
+        private Part GetPartById(int partId)
+        {
+            return _inventory.LookupPart(partId);
+        }
+
+        private Product GetProductById(int productId)
+        {
+            return _inventory.LookupProduct(productId);
         }
     }
 }
-

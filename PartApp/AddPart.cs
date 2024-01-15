@@ -5,10 +5,13 @@ namespace PartApp
 {
     public partial class AddPart : Form
     {
-        public AddPart()
+        private Inventory inventory;
+
+        public AddPart(Inventory initialInventory)
         {
             InitializeComponent();
             InitializeRadioButtons();
+            inventory = initialInventory;
         }
 
         private void InitializeRadioButtons()
@@ -33,7 +36,7 @@ namespace PartApp
             Part newPart = CreatePartFromFormData();
             if (newPart != null)
             {
-                ProductDataStore.AllParts.Add(newPart);
+                inventory.AllParts.Add(newPart);
                 DialogResult = DialogResult.OK;
                 Close();
             }
@@ -105,22 +108,22 @@ namespace PartApp
 
         private Part CreatePartFromFormData()
         {
-            int partId = ProductDataStore.GeneratePartId();
+            int partId = inventory.GeneratePartId();
             string name = txtName.Text.Trim();
             decimal price = decimal.Parse(txtPrice.Text.Trim());
-            int inventory = int.Parse(txtInventory.Text.Trim());
+            int inventoryCount = int.Parse(txtInventory.Text.Trim());
             int min = int.Parse(txtMin.Text.Trim());
             int max = int.Parse(txtMax.Text.Trim());
 
             if (radioInHouse.Checked)
             {
                 int machineId = int.Parse(txtMachineID.Text.Trim());
-                return new Inhouse(partId, name, price, inventory, min, max, machineId);
+                return new Inhouse(partId, name, price, inventoryCount, min, max, machineId);
             }
             else
             {
                 string companyName = txtCompanyName.Text.Trim();
-                return new Outsourced(partId, name, price, inventory, min, max, companyName);
+                return new Outsourced(partId, name, price, inventoryCount, min, max, companyName);
             }
         }
 
