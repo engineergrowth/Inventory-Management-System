@@ -52,9 +52,10 @@
             // 
             this.MainLB.AutoSize = true;
             this.MainLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainLB.Location = new System.Drawing.Point(21, 22);
+            this.MainLB.Location = new System.Drawing.Point(14, 14);
+            this.MainLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MainLB.Name = "MainLB";
-            this.MainLB.Size = new System.Drawing.Size(428, 34);
+            this.MainLB.Size = new System.Drawing.Size(288, 21);
             this.MainLB.TabIndex = 0;
             this.MainLB.Text = "Inventory Management System";
             // 
@@ -62,18 +63,20 @@
             // 
             this.PartsLabel.AutoSize = true;
             this.PartsLabel.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartsLabel.Location = new System.Drawing.Point(79, 100);
+            this.PartsLabel.Location = new System.Drawing.Point(53, 65);
+            this.PartsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PartsLabel.Name = "PartsLabel";
-            this.PartsLabel.Size = new System.Drawing.Size(81, 34);
+            this.PartsLabel.Size = new System.Drawing.Size(55, 21);
             this.PartsLabel.TabIndex = 1;
             this.PartsLabel.Text = "Parts";
             // 
             // PartSearchBT
             // 
             this.PartSearchBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartSearchBT.Location = new System.Drawing.Point(195, 97);
+            this.PartSearchBT.Location = new System.Drawing.Point(130, 63);
+            this.PartSearchBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PartSearchBT.Name = "PartSearchBT";
-            this.PartSearchBT.Size = new System.Drawing.Size(108, 42);
+            this.PartSearchBT.Size = new System.Drawing.Size(72, 27);
             this.PartSearchBT.TabIndex = 2;
             this.PartSearchBT.Text = "Search";
             this.PartSearchBT.UseVisualStyleBackColor = true;
@@ -82,17 +85,19 @@
             // PartSearchBox
             // 
             this.PartSearchBox.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PartSearchBox.Location = new System.Drawing.Point(319, 97);
+            this.PartSearchBox.Location = new System.Drawing.Point(213, 63);
+            this.PartSearchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PartSearchBox.Name = "PartSearchBox";
-            this.PartSearchBox.Size = new System.Drawing.Size(333, 39);
+            this.PartSearchBox.Size = new System.Drawing.Size(223, 29);
             this.PartSearchBox.TabIndex = 3;
             // 
             // ProductsSearchBT
             // 
             this.ProductsSearchBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductsSearchBT.Location = new System.Drawing.Point(883, 102);
+            this.ProductsSearchBT.Location = new System.Drawing.Point(589, 66);
+            this.ProductsSearchBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProductsSearchBT.Name = "ProductsSearchBT";
-            this.ProductsSearchBT.Size = new System.Drawing.Size(108, 37);
+            this.ProductsSearchBT.Size = new System.Drawing.Size(72, 24);
             this.ProductsSearchBT.TabIndex = 4;
             this.ProductsSearchBT.Text = "Search";
             this.ProductsSearchBT.UseVisualStyleBackColor = true;
@@ -101,9 +106,10 @@
             // ProductSearchBox
             // 
             this.ProductSearchBox.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductSearchBox.Location = new System.Drawing.Point(1014, 97);
+            this.ProductSearchBox.Location = new System.Drawing.Point(676, 63);
+            this.ProductSearchBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ProductSearchBox.Name = "ProductSearchBox";
-            this.ProductSearchBox.Size = new System.Drawing.Size(312, 39);
+            this.ProductSearchBox.Size = new System.Drawing.Size(209, 29);
             this.ProductSearchBox.TabIndex = 5;
             this.ProductSearchBox.Click += new System.EventHandler(this.ProductsSearchBT_Click);
             // 
@@ -111,18 +117,20 @@
             // 
             this.ProductsLabel.AutoSize = true;
             this.ProductsLabel.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductsLabel.Location = new System.Drawing.Point(718, 105);
+            this.ProductsLabel.Location = new System.Drawing.Point(479, 68);
+            this.ProductsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ProductsLabel.Name = "ProductsLabel";
-            this.ProductsLabel.Size = new System.Drawing.Size(130, 34);
+            this.ProductsLabel.Size = new System.Drawing.Size(90, 21);
             this.ProductsLabel.TabIndex = 6;
             this.ProductsLabel.Text = "Products";
             // 
             // ModifyProductBT
             // 
             this.ModifyProductBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModifyProductBT.Location = new System.Drawing.Point(1029, 606);
+            this.ModifyProductBT.Location = new System.Drawing.Point(686, 394);
+            this.ModifyProductBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ModifyProductBT.Name = "ModifyProductBT";
-            this.ModifyProductBT.Size = new System.Drawing.Size(108, 44);
+            this.ModifyProductBT.Size = new System.Drawing.Size(72, 29);
             this.ModifyProductBT.TabIndex = 7;
             this.ModifyProductBT.Text = "Modify";
             this.ModifyProductBT.UseVisualStyleBackColor = true;
@@ -131,9 +139,10 @@
             // ModifyPartBT
             // 
             this.ModifyPartBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModifyPartBT.Location = new System.Drawing.Point(341, 608);
+            this.ModifyPartBT.Location = new System.Drawing.Point(227, 395);
+            this.ModifyPartBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ModifyPartBT.Name = "ModifyPartBT";
-            this.ModifyPartBT.Size = new System.Drawing.Size(108, 42);
+            this.ModifyPartBT.Size = new System.Drawing.Size(72, 27);
             this.ModifyPartBT.TabIndex = 8;
             this.ModifyPartBT.Text = "Modify";
             this.ModifyPartBT.UseVisualStyleBackColor = true;
@@ -142,9 +151,10 @@
             // DeletePartBT
             // 
             this.DeletePartBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeletePartBT.Location = new System.Drawing.Point(485, 608);
+            this.DeletePartBT.Location = new System.Drawing.Point(323, 395);
+            this.DeletePartBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeletePartBT.Name = "DeletePartBT";
-            this.DeletePartBT.Size = new System.Drawing.Size(108, 42);
+            this.DeletePartBT.Size = new System.Drawing.Size(72, 27);
             this.DeletePartBT.TabIndex = 9;
             this.DeletePartBT.Text = "Delete";
             this.DeletePartBT.UseVisualStyleBackColor = true;
@@ -153,9 +163,10 @@
             // AddProductBT
             // 
             this.AddProductBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddProductBT.Location = new System.Drawing.Point(883, 606);
+            this.AddProductBT.Location = new System.Drawing.Point(589, 394);
+            this.AddProductBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddProductBT.Name = "AddProductBT";
-            this.AddProductBT.Size = new System.Drawing.Size(108, 44);
+            this.AddProductBT.Size = new System.Drawing.Size(72, 29);
             this.AddProductBT.TabIndex = 10;
             this.AddProductBT.Text = "Add";
             this.AddProductBT.UseVisualStyleBackColor = true;
@@ -164,9 +175,10 @@
             // DeleteProductBT
             // 
             this.DeleteProductBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteProductBT.Location = new System.Drawing.Point(1177, 606);
+            this.DeleteProductBT.Location = new System.Drawing.Point(785, 394);
+            this.DeleteProductBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DeleteProductBT.Name = "DeleteProductBT";
-            this.DeleteProductBT.Size = new System.Drawing.Size(108, 44);
+            this.DeleteProductBT.Size = new System.Drawing.Size(72, 29);
             this.DeleteProductBT.TabIndex = 11;
             this.DeleteProductBT.Text = "Delete";
             this.DeleteProductBT.UseVisualStyleBackColor = true;
@@ -175,9 +187,10 @@
             // AddPartBT
             // 
             this.AddPartBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPartBT.Location = new System.Drawing.Point(195, 608);
+            this.AddPartBT.Location = new System.Drawing.Point(130, 395);
+            this.AddPartBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddPartBT.Name = "AddPartBT";
-            this.AddPartBT.Size = new System.Drawing.Size(108, 42);
+            this.AddPartBT.Size = new System.Drawing.Size(72, 27);
             this.AddPartBT.TabIndex = 12;
             this.AddPartBT.Text = "Add";
             this.AddPartBT.UseVisualStyleBackColor = true;
@@ -186,9 +199,10 @@
             // ExitBT
             // 
             this.ExitBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExitBT.Location = new System.Drawing.Point(1208, 25);
+            this.ExitBT.Location = new System.Drawing.Point(805, 16);
+            this.ExitBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ExitBT.Name = "ExitBT";
-            this.ExitBT.Size = new System.Drawing.Size(108, 35);
+            this.ExitBT.Size = new System.Drawing.Size(72, 23);
             this.ExitBT.TabIndex = 13;
             this.ExitBT.Text = "Exit";
             this.ExitBT.UseVisualStyleBackColor = true;
@@ -197,31 +211,33 @@
             // MainPartDGV
             // 
             this.MainPartDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainPartDGV.Location = new System.Drawing.Point(12, 169);
+            this.MainPartDGV.Location = new System.Drawing.Point(8, 110);
+            this.MainPartDGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MainPartDGV.Name = "MainPartDGV";
             this.MainPartDGV.RowHeadersWidth = 62;
             this.MainPartDGV.RowTemplate.Height = 28;
             this.MainPartDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MainPartDGV.Size = new System.Drawing.Size(671, 415);
+            this.MainPartDGV.Size = new System.Drawing.Size(447, 270);
             this.MainPartDGV.TabIndex = 14;
             // 
             // MainProductDGV
             // 
             this.MainProductDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainProductDGV.Location = new System.Drawing.Point(689, 169);
+            this.MainProductDGV.Location = new System.Drawing.Point(459, 110);
+            this.MainProductDGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MainProductDGV.Name = "MainProductDGV";
             this.MainProductDGV.RowHeadersWidth = 62;
             this.MainProductDGV.RowTemplate.Height = 28;
             this.MainProductDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MainProductDGV.Size = new System.Drawing.Size(658, 415);
+            this.MainProductDGV.Size = new System.Drawing.Size(439, 270);
             this.MainProductDGV.TabIndex = 15;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(1359, 674);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(906, 438);
             this.Controls.Add(this.MainProductDGV);
             this.Controls.Add(this.MainPartDGV);
             this.Controls.Add(this.ExitBT);
@@ -238,6 +254,7 @@
             this.Controls.Add(this.PartSearchBT);
             this.Controls.Add(this.PartsLabel);
             this.Controls.Add(this.MainLB);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainForm";
             this.Text = "Home";
             this.Load += new System.EventHandler(this.MainForm_Load);

@@ -37,7 +37,7 @@ namespace PartApp
 
         private void AddPartBT_Click(object sender, EventArgs e)
         {
-            AddPart addPartForm = new AddPart(_inventory); // Pass the Inventory object
+            AddPart addPartForm = new AddPart(_inventory);
             if (addPartForm.ShowDialog() == DialogResult.OK)
             {
                 RefreshPartsGrid();
@@ -52,9 +52,8 @@ namespace PartApp
                 Part partToModify = GetPartById(partId);
                 if (partToModify != null)
                 {
-                    ModifyPart modifyPartForm = new ModifyPart(partId, _inventory); // Pass partId and _inventory
-                    modifyPartForm.InitialParts = _inventory.AllParts.ToList(); // Set the InitialParts property
-                    // No need to call the PartToModify method, as it's not a method in ModifyPart class
+                    ModifyPart modifyPartForm = new ModifyPart(partId, _inventory); 
+                    modifyPartForm.InitialParts = _inventory.AllParts.ToList(); 
                     if (modifyPartForm.ShowDialog() == DialogResult.OK)
                     {
                         RefreshPartsGrid();

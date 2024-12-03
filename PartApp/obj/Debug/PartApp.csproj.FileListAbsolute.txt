@@ -11,3 +11,16 @@ C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.pdb
 C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.ModifyProduct.resources
 C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.ModifyPart.resources
 C:\Users\home\source\repos\PartApp\PartApp\obj\Debug\PartApp.AddProduct.resources
+C:\wgu\Inventory-Management-System\PartApp\bin\Debug\PartApp.exe.config
+C:\wgu\Inventory-Management-System\PartApp\bin\Debug\PartApp.exe
+C:\wgu\Inventory-Management-System\PartApp\bin\Debug\PartApp.pdb
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.csproj.AssemblyReference.cache
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.AddPart.resources
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.AddProduct.resources
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.ModifyProduct.resources
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.ModifyPart.resources
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.MainForm.resources
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.csproj.GenerateResource.cache
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.csproj.CoreCompileInputs.cache
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.exe
+C:\wgu\Inventory-Management-System\PartApp\obj\Debug\PartApp.pdb

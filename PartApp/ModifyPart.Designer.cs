@@ -55,9 +55,10 @@
             // 
             this.ModPartLB.AutoSize = true;
             this.ModPartLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModPartLB.Location = new System.Drawing.Point(40, 31);
+            this.ModPartLB.Location = new System.Drawing.Point(27, 20);
+            this.ModPartLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModPartLB.Name = "ModPartLB";
-            this.ModPartLB.Size = new System.Drawing.Size(180, 34);
+            this.ModPartLB.Size = new System.Drawing.Size(121, 21);
             this.ModPartLB.TabIndex = 2;
             this.ModPartLB.Text = "Modify Part:";
             // 
@@ -65,9 +66,10 @@
             // 
             this.ModPartIDLB.AutoSize = true;
             this.ModPartIDLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModPartIDLB.Location = new System.Drawing.Point(40, 87);
+            this.ModPartIDLB.Location = new System.Drawing.Point(27, 57);
+            this.ModPartIDLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModPartIDLB.Name = "ModPartIDLB";
-            this.ModPartIDLB.Size = new System.Drawing.Size(53, 34);
+            this.ModPartIDLB.Size = new System.Drawing.Size(35, 21);
             this.ModPartIDLB.TabIndex = 23;
             this.ModPartIDLB.Text = " ID";
             // 
@@ -75,9 +77,10 @@
             // 
             this.ModPartNameLB.AutoSize = true;
             this.ModPartNameLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModPartNameLB.Location = new System.Drawing.Point(40, 146);
+            this.ModPartNameLB.Location = new System.Drawing.Point(27, 95);
+            this.ModPartNameLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModPartNameLB.Name = "ModPartNameLB";
-            this.ModPartNameLB.Size = new System.Drawing.Size(93, 34);
+            this.ModPartNameLB.Size = new System.Drawing.Size(62, 21);
             this.ModPartNameLB.TabIndex = 24;
             this.ModPartNameLB.Text = "Name";
             // 
@@ -85,9 +88,10 @@
             // 
             this.ModPartInventoryLB.AutoSize = true;
             this.ModPartInventoryLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModPartInventoryLB.Location = new System.Drawing.Point(40, 211);
+            this.ModPartInventoryLB.Location = new System.Drawing.Point(27, 137);
+            this.ModPartInventoryLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModPartInventoryLB.Name = "ModPartInventoryLB";
-            this.ModPartInventoryLB.Size = new System.Drawing.Size(142, 34);
+            this.ModPartInventoryLB.Size = new System.Drawing.Size(97, 21);
             this.ModPartInventoryLB.TabIndex = 25;
             this.ModPartInventoryLB.Text = "Inventory";
             // 
@@ -95,9 +99,10 @@
             // 
             this.ModPartCostLB.AutoSize = true;
             this.ModPartCostLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModPartCostLB.Location = new System.Drawing.Point(40, 282);
+            this.ModPartCostLB.Location = new System.Drawing.Point(27, 183);
+            this.ModPartCostLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModPartCostLB.Name = "ModPartCostLB";
-            this.ModPartCostLB.Size = new System.Drawing.Size(148, 34);
+            this.ModPartCostLB.Size = new System.Drawing.Size(101, 21);
             this.ModPartCostLB.TabIndex = 26;
             this.ModPartCostLB.Text = "Price/Cost";
             // 
@@ -105,9 +110,10 @@
             // 
             this.ModPartMaxLB.AutoSize = true;
             this.ModPartMaxLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ModPartMaxLB.Location = new System.Drawing.Point(40, 350);
+            this.ModPartMaxLB.Location = new System.Drawing.Point(27, 227);
+            this.ModPartMaxLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ModPartMaxLB.Name = "ModPartMaxLB";
-            this.ModPartMaxLB.Size = new System.Drawing.Size(72, 34);
+            this.ModPartMaxLB.Size = new System.Drawing.Size(49, 21);
             this.ModPartMaxLB.TabIndex = 27;
             this.ModPartMaxLB.Text = "Max";
             // 
@@ -115,9 +121,10 @@
             // 
             this.AddPartMinLB.AutoSize = true;
             this.AddPartMinLB.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPartMinLB.Location = new System.Drawing.Point(429, 350);
+            this.AddPartMinLB.Location = new System.Drawing.Point(286, 227);
+            this.AddPartMinLB.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.AddPartMinLB.Name = "AddPartMinLB";
-            this.AddPartMinLB.Size = new System.Drawing.Size(67, 34);
+            this.AddPartMinLB.Size = new System.Drawing.Size(45, 21);
             this.AddPartMinLB.TabIndex = 28;
             this.AddPartMinLB.Text = "Min";
             // 
@@ -125,18 +132,20 @@
             // 
             this.labelMachineID.AutoSize = true;
             this.labelMachineID.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMachineID.Location = new System.Drawing.Point(40, 425);
+            this.labelMachineID.Location = new System.Drawing.Point(27, 276);
+            this.labelMachineID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelMachineID.Name = "labelMachineID";
-            this.labelMachineID.Size = new System.Drawing.Size(165, 34);
+            this.labelMachineID.Size = new System.Drawing.Size(110, 21);
             this.labelMachineID.TabIndex = 29;
             this.labelMachineID.Text = "Machine ID";
             // 
             // AddPartSaveBT
             // 
             this.AddPartSaveBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPartSaveBT.Location = new System.Drawing.Point(111, 524);
+            this.AddPartSaveBT.Location = new System.Drawing.Point(74, 341);
+            this.AddPartSaveBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddPartSaveBT.Name = "AddPartSaveBT";
-            this.AddPartSaveBT.Size = new System.Drawing.Size(108, 42);
+            this.AddPartSaveBT.Size = new System.Drawing.Size(72, 27);
             this.AddPartSaveBT.TabIndex = 30;
             this.AddPartSaveBT.Text = "Save ";
             this.AddPartSaveBT.UseVisualStyleBackColor = true;
@@ -145,9 +154,10 @@
             // AddPartCancelBT
             // 
             this.AddPartCancelBT.Font = new System.Drawing.Font("Gadugi", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPartCancelBT.Location = new System.Drawing.Point(471, 524);
+            this.AddPartCancelBT.Location = new System.Drawing.Point(314, 341);
+            this.AddPartCancelBT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AddPartCancelBT.Name = "AddPartCancelBT";
-            this.AddPartCancelBT.Size = new System.Drawing.Size(108, 42);
+            this.AddPartCancelBT.Size = new System.Drawing.Size(72, 27);
             this.AddPartCancelBT.TabIndex = 31;
             this.AddPartCancelBT.Text = "Cancel";
             this.AddPartCancelBT.UseVisualStyleBackColor = true;
@@ -156,68 +166,76 @@
             // txtInventory
             // 
             this.txtInventory.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInventory.Location = new System.Drawing.Point(225, 206);
+            this.txtInventory.Location = new System.Drawing.Point(150, 134);
+            this.txtInventory.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInventory.Name = "txtInventory";
-            this.txtInventory.Size = new System.Drawing.Size(186, 39);
+            this.txtInventory.Size = new System.Drawing.Size(125, 29);
             this.txtInventory.TabIndex = 32;
             // 
             // txtPrice
             // 
             this.txtPrice.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrice.Location = new System.Drawing.Point(225, 277);
+            this.txtPrice.Location = new System.Drawing.Point(150, 180);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(186, 39);
+            this.txtPrice.Size = new System.Drawing.Size(125, 29);
             this.txtPrice.TabIndex = 33;
             // 
             // txtMax
             // 
             this.txtMax.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMax.Location = new System.Drawing.Point(225, 345);
+            this.txtMax.Location = new System.Drawing.Point(150, 224);
+            this.txtMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(186, 39);
+            this.txtMax.Size = new System.Drawing.Size(125, 29);
             this.txtMax.TabIndex = 34;
             // 
             // txtMachineID
             // 
             this.txtMachineID.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMachineID.Location = new System.Drawing.Point(225, 420);
+            this.txtMachineID.Location = new System.Drawing.Point(150, 273);
+            this.txtMachineID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMachineID.Name = "txtMachineID";
-            this.txtMachineID.Size = new System.Drawing.Size(186, 39);
+            this.txtMachineID.Size = new System.Drawing.Size(125, 29);
             this.txtMachineID.TabIndex = 35;
             // 
             // txtMin
             // 
             this.txtMin.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMin.Location = new System.Drawing.Point(521, 350);
+            this.txtMin.Location = new System.Drawing.Point(347, 227);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(186, 39);
+            this.txtMin.Size = new System.Drawing.Size(125, 29);
             this.txtMin.TabIndex = 36;
             // 
             // txtPartId
             // 
             this.txtPartId.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.txtPartId.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPartId.Location = new System.Drawing.Point(225, 87);
+            this.txtPartId.Location = new System.Drawing.Point(150, 57);
+            this.txtPartId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPartId.Name = "txtPartId";
             this.txtPartId.ReadOnly = true;
-            this.txtPartId.Size = new System.Drawing.Size(365, 39);
+            this.txtPartId.Size = new System.Drawing.Size(245, 29);
             this.txtPartId.TabIndex = 37;
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(225, 146);
+            this.txtName.Location = new System.Drawing.Point(150, 95);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(365, 39);
+            this.txtName.Size = new System.Drawing.Size(245, 29);
             this.txtName.TabIndex = 38;
             // 
             // radioInHouse
             // 
             this.radioInHouse.AutoSize = true;
             this.radioInHouse.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioInHouse.Location = new System.Drawing.Point(291, 28);
+            this.radioInHouse.Location = new System.Drawing.Point(194, 18);
+            this.radioInHouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioInHouse.Name = "radioInHouse";
-            this.radioInHouse.Size = new System.Drawing.Size(153, 37);
+            this.radioInHouse.Size = new System.Drawing.Size(105, 26);
             this.radioInHouse.TabIndex = 39;
             this.radioInHouse.TabStop = true;
             this.radioInHouse.Text = "In-House";
@@ -228,9 +246,10 @@
             // 
             this.radioOutsourced.AutoSize = true;
             this.radioOutsourced.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioOutsourced.Location = new System.Drawing.Point(471, 31);
+            this.radioOutsourced.Location = new System.Drawing.Point(314, 20);
+            this.radioOutsourced.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioOutsourced.Name = "radioOutsourced";
-            this.radioOutsourced.Size = new System.Drawing.Size(184, 37);
+            this.radioOutsourced.Size = new System.Drawing.Size(126, 26);
             this.radioOutsourced.TabIndex = 40;
             this.radioOutsourced.TabStop = true;
             this.radioOutsourced.Text = "Outsourced";
@@ -240,26 +259,28 @@
             // 
             this.labelCompanyName.AutoSize = true;
             this.labelCompanyName.Font = new System.Drawing.Font("Gadugi", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCompanyName.Location = new System.Drawing.Point(43, 425);
+            this.labelCompanyName.Location = new System.Drawing.Point(29, 276);
+            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(139, 34);
+            this.labelCompanyName.Size = new System.Drawing.Size(95, 21);
             this.labelCompanyName.TabIndex = 41;
             this.labelCompanyName.Text = "Company";
             // 
             // txtCompanyName
             // 
             this.txtCompanyName.Font = new System.Drawing.Font("Gadugi", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCompanyName.Location = new System.Drawing.Point(225, 422);
+            this.txtCompanyName.Location = new System.Drawing.Point(150, 274);
+            this.txtCompanyName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCompanyName.Name = "txtCompanyName";
-            this.txtCompanyName.Size = new System.Drawing.Size(186, 39);
+            this.txtCompanyName.Size = new System.Drawing.Size(125, 29);
             this.txtCompanyName.TabIndex = 42;
             // 
             // ModifyPart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Desktop;
-            this.ClientSize = new System.Drawing.Size(800, 603);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(533, 392);
             this.Controls.Add(this.txtCompanyName);
             this.Controls.Add(this.labelCompanyName);
             this.Controls.Add(this.radioOutsourced);
@@ -281,6 +302,7 @@
             this.Controls.Add(this.ModPartNameLB);
             this.Controls.Add(this.ModPartIDLB);
             this.Controls.Add(this.ModPartLB);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModifyPart";
             this.Text = "Modify Part";
             this.ResumeLayout(false);

@@ -170,7 +170,7 @@ namespace PartApp
                 outsourcedPart.CompanyName = txtCompanyName.Text;
             }
 
-            _inventory.UpdatePart(_currentPart.PartId, _currentPart); // Use the instance to call the UpdatePart method
+            _inventory.UpdatePart(_currentPart.PartId, _currentPart); 
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
